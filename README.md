@@ -35,7 +35,17 @@ helloModule(); // nhu nay la goi dc roi
 ### call & apply
 
 
+### Libuv, EvenLoop & Noon blocking
 
+
+### Version trong package.json
+
+```html
+Version theo chuẩn: minor.major.patch
+
+^ Sử dụng khi muốn: cứ có phiên bản nâng cấp là tải về
+~ Chỉ tải về phiên bản khi có nâng cấp ở mức patch
+```
 
 
 
@@ -51,7 +61,7 @@ Object là một tập hợp các cặp Name/Value
 
 Khai báo object trong javascript sử dụng kiểu json
 
-vi du
+for example:
 ```java
 var person = {
 	firstName: "Hang",
@@ -65,8 +75,6 @@ var person = {
 
 Truy cập đến thuộc tính trực tiếp từ đối tượng: ```person.firstName hoặc person["firstName"]```
 
-
-Scope
 
 
 
