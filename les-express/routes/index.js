@@ -1,5 +1,10 @@
 var express = require('express');
-var router = express.Router();
+var bodyParser = require('body-parser');
+var router  = express.Router();
+var app     = express();
+
+var jsonParser = bodyParser.json();
+var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -57,37 +62,17 @@ pool.on('release', function (connection) {
 /********************************************************************************
  * mongodb
  */
-var mongooes    = require('mongoose');
-mongooes.connect("mongodb://kensource:kensource@ds157528.mlab.com:57528/nodedb");
-var Schema      = mongooes.Schema;
+var mongoose = require("mongoose");
+var personController = require("../controller/person");
 
-var personSchema = new Schema({
-    fullName: String,
-    age: String
-});
-var Person  = mongooes.model("Person", personSchema, 'test2');
-// test2 là tên Collection
+mongoose.connect("mongodb://kensource:kensource@ds157528.mlab.com:57528/nodedb");
 
-router.get('/mongo/insert', function (req, res) {
+router.route('/api/all').get(personController.getPeople);
 
-    // create object
-    var person = Person ({
-        fullName: "Nguyen Y",
-        age: 20
-    });
+router.route('/api/insert').post(personController.insertPerson);
 
-    person.save(function (err, ) {
-        if (err) throw  err;
-        console.log("Document inserted");
-        res.send(JSON.stringify(person));
-    });
-});
+router.route('/api/delete/:uid').get(personController.deletePerson);
 
-router.get('/mongo/all', function (req, res) {
-    Person.find({}, function (err, data) {
-        res.send(data);
-    });
-});
-
+router.route('/api/person/:uid').get(personController.getPerson);
 
 module.exports = router;
