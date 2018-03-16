@@ -1,0 +1,23 @@
+<html ng-app="app.todo">
+<head>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="/js/client.js"></script>
+    <script src="/js/service.js"></script>
+</head>
+<body ng-controller="todoController">
+
+    <h4>{{ appName }}</h4>
+
+    <div class="container" ng-repeat="item in listData">
+        <span>{{ item.text }}</span>
+        <button class="btn-default" ng-click="deleteData(item.id)">Delete</button>
+    </div>
+
+
+</body>
+</html>
