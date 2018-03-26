@@ -1,0 +1,12 @@
+<section class="container">
+
+	<h3>Detail page</h3>
+
+	<h3>
+		{{user.first_name}} {{user.last_name}} {{user.id}}
+	</h3>
+
+	<form action="/user/delete/{{user.id}}?_method=DELETE" method="POST" accept-charset="utf-8">
+		<input type="submit" class="btn btn-danger pull-right" value="Delete User">
+	</form>
+</section>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Red user management</title>
+
+	<link rel="stylesheet" type="text/css" href="//bootswatch.com/4/flatly/bootstrap.min.css">
+
+</head>
+<body>
+
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">RedUser</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/add">Add User</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="post" action="/user/search" >
+          <input class="form-control mr-sm-2" name="id" type="text" placeholder="Search user by id" aria-label="Search">
+          <button class="btn btn-success " type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+
+	{{{body}}}
+
+
+</body>
+</html>
